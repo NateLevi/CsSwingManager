@@ -1,22 +1,25 @@
 const dotenv = require('dotenv');
-dotenv.config({ path: '../.env' });
+const path = require('path');
 
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 let serviceAccount;
+
 try {
-  if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
+    const serviceAccountPath = path.resolve(__dirname, '..', process.env.FIREBASE_SERVICE_ACCOUNT_PATH);
+    serviceAccount = require(serviceAccountPath);
   } else {
-    serviceAccount = require('./db/cs-swing-system-firebase-adminsdk-fbsvc-9bdfdef2cb.json');
+    throw new Error('FIREBASE_SERVICE_ACCOUNT_PATH must be set in the .env file.');
   }
 } catch (error) {
-  console.error('Error loading Firebase service account:', error);
-  serviceAccount = {};
+  console.error('Fatal Error: Could not load Firebase service account key.', error);
+  process.exit(1); 
 }
 
 module.exports = {
   port: process.env.PORT || 1000,
   databaseUrl: process.env.DATABASE_URL,
   firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
-  firebaseServiceAccount: serviceAccount,
+  firebaseServiceAccount: serviceAccount, // This now holds the loaded JSON object
 };
