@@ -18,8 +18,8 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 export default function SideBar() {
     return (
-    <div className='pl-5' style={{ marginTop: '74px' }}>
-      <Card sx={{ width: 280, height: 'calc(100vh - 74px)', backgroundColor: '#2f2f2f', color: '#fff' }}>
+    <div className='pl-5' style={{ marginTop: '84px' }}>
+      <Card sx={{ width: 280, height: 'calc(100vh - 84px)', backgroundColor: '#2f2f2f', color: '#fff' }}>
         <CardContent>
           <Typography variant="h6" align="center" sx={{ mb: 2 }}>
             CS Manager
