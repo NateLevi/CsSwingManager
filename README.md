@@ -1,17 +1,24 @@
 # Swing System App for Cellular Sales
 
 ## Overview
-The Swing System App is a queue management solution developed to solve a common challenge at my Cellular Sales local store. This application streamlines customer assignments, ensuring fair distribution of sales opportunities while providing real-time visibility into the queue status.
+A full-stack, real-time store management system tailored for Cellular Sales’ Store A. Built to modernize internal operations, streamline customer handling, manage inventory, and track store performance with live data.
 
 Please note that after periods of inactivity, the site may take a few seconds to load as the Render-hosted server wakes up from sleep mode.
 
 ## Problem Statement
 At Cellular Sales, we faced several challenges with our manual swing system:
-- Difficulty tracking which sales rep should get the next customer
-- Confusion when handling customers
-- No visibility into queue status across the sales floor
-- Inconsistent application of queue rules when shifts change
-- Lack of data on customer volume and rep performance
+❌ Confusion about rep rotation and customer assignment
+
+❌ No centralized way to track or manage inventory and supplies
+
+❌ Lack of visibility into key store performance data
+
+❌ No internal support request system
+
+❌ Fragmented or inconsistent store operations
+
+Solution: The Store A Management System
+This app provides a unified digital hub to support daily store operations, combining real-time queueing, inventory tracking, analytics, and support features into a single, modern interface.
 
 ## Testing 🚨 **Important** 
 Since this is a demo version of the actualy application, here are testing emails:
@@ -31,66 +38,65 @@ testemail4
 johncrawford@cellularsales.com
 testemail5
 
-## Features
+## Key Features
 
-### Queue Tasking
-- The reps understood that their order was based on who clocked in for the day
-- The first in order got the next customer
-- Reps sign in at the start of their shift, press the help button
-- When a customer walks in, the system assigns the customer to the rep at the top with a status of busy
+ Dashboard
+Live analytics and charts for:
 
-### Real-time Updates
-- Using Socket.IO and Firebase, the system updates in real time
-- Reps can immediately see who's next, who is busy, and how many customers are waiting
+Rep performance
 
-### Wait Time and Total Customers
-- Reps can see how long customers have been waiting based on when they walked in
-- After each rep finishes with a customer, their total customers increases by 1
-- If a group came in, the rep still helps the group which counts as 1 customer
+Customer swing volume
 
-### Authentication
-- Reps log in using their work email and password (managed via Firebase Authentication)
-- This allows them to assign themselves to a specific customer
+Inventory trends
 
-### Queue Visibility
-- All reps can see current queue order and their position
+Supply usage
 
-### Reset Rep
-- This feature allows reps to reset their position in the queue
-- Used in rare cases when the customer didn't count (fraud, abuse, or chaotic event)
+👥 Rep Portal
+Real-time rep queue system ("swing system")
 
-### Add and Remove Customer
-- This feature allows reps to add a customer to the queue and remove one if needed
+Rep check-ins and customer assignment tracking
 
-## Technologies Used
+Auto-rotation with status updates
 
-### Frontend
-- React (built with Vite)
+📦 Inventory Management
+View, add, edit, and transfer inventory between stores
 
-### Backend
-- Node.js with Express
+Supports detailed tracking of devices, SIMs, and accessories
 
-### Real-time Communication
-- Socket.IO
+📑 Supply Ordering
+Browse supply catalog from product_types
 
-### Authentication
-- Firebase Authentication
+Place timed orders (delayed fulfillment to simulate restocking window)
 
-### Database
-- PostgreSQL
-- Supabase
+Auto-adds to inventory when order is "fulfilled"
 
-### Deployment
-- Netlify: Frontend hosting
-- Render: Backend hosting
+🔄 Inventory Transfers
+Transfer inventory between stores
 
-## Impact
-The Swing System App was adopted by our store team and resulted in:
-- Reduction in confusion over customer assignments
-- Eliminated disputes over the queue order
-- Increased transparency across the sales floor
-- Improved management visibility into sales rep performance
-- Better customer experience through reduced wait times
+Status tracking and admin approval flow
+
+🆘 Internal Support System
+Submit support tickets
+
+Track resolution status
+
+Categorized by department or issue type
+
+## Tech Stack
+Frontend: React, React Router, Material UI
+
+Backend: Express.js, Node.js, Supabase (PostgreSQL), Firebase Auth
+
+Real-Time: Socket.IO
+
+Data: Day.js, Chart.js or Recharts (based on implementation)
+
+Auth: Firebase Admin SDK + JWT
+
+Deployment: Render, netlify
+
+
+
 
 ### Installation
 ```bash
