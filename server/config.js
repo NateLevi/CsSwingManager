@@ -1,45 +1,42 @@
-// config.js (with added debugging)
-// const path = require('path'); // Not needed for this approach
+// config.js (Loading from JSON Environment Variable)
 
 // dotenv is for local development only
 // require('dotenv').config(...)
-console.log('--- Loading config.js ---'); // Log entry to prove this file is running
+console.log('--- Loading config.js ---');
 
 let serviceAccount;
 
 try {
-  const serviceAccountFilename = process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
-  // Log the exact value read from the environment variable
-  console.log(`DEBUG: Env Var FIREBASE_SERVICE_ACCOUNT_PATH value: "${serviceAccountFilename}"`);
+  // Read the JSON string directly from the environment variable
+  // Ensure this variable is set in Render with the correctly formatted single-line JSON string
+  const serviceAccountJSON = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+  console.log(`DEBUG: Attempting to read FIREBASE_SERVICE_ACCOUNT_JSON env var.`);
 
-  if (serviceAccountFilename) {
-    // Log the current working directory to see where Node is running from
-    try {
-      console.log(`DEBUG: Current Working Directory (CWD): ${process.cwd()}`);
-    } catch (e) { console.log('DEBUG: Could not get CWD.')}
+  if (serviceAccountJSON) {
+    console.log(`DEBUG: Env var FIREBASE_SERVICE_ACCOUNT_JSON is present, attempting JSON.parse().`);
+    // Parse the JSON string into an object
+    serviceAccount = JSON.parse(serviceAccountJSON);
 
-    // Log exactly what we are about to require
-    console.log(`DEBUG: Attempting require('${serviceAccountFilename}')`);
-
-    // require() will search Node's default paths, including the CWD
-    serviceAccount = require(serviceAccountFilename); // Use the filename directly
-
-    console.log('Firebase service account loaded successfully.');
-
+    // Optional: Basic validation after parsing to catch common errors
+    if (!serviceAccount.project_id || !serviceAccount.private_key || !serviceAccount.client_email) {
+       throw new Error('Parsed service account JSON is missing required fields (project_id, private_key, client_email).');
+    }
+     console.log('Firebase service account parsed successfully from environment variable.');
   } else {
-    // This means the environment variable wasn't set in Render
-    throw new Error('FIREBASE_SERVICE_ACCOUNT_PATH environment variable is not set in Render.');
+    // Variable not set in Render environment
+    throw new Error('FIREBASE_SERVICE_ACCOUNT_JSON environment variable is not set.');
   }
 } catch (error) {
-  console.error('Fatal Error: Could not load Firebase service account key.', error);
-  // Log the filename it *should* have attempted based on the env var
-  console.error(`Filename attempted based on Env Var: ${process.env.FIREBASE_SERVICE_ACCOUNT_PATH || 'Not Set'}`);
+  // Catch parsing errors (if JSON format is bad) or missing variable error
+  console.error('Fatal Error: Could not load/parse Firebase service account key from environment variable.', error);
+  // Avoid logging the full JSON string here for security.
   process.exit(1);
 }
 
 module.exports = {
-  port: process.env.PORT || 3000, // Use Render's PORT
+  port: process.env.PORT || 3000,
   databaseUrl: process.env.DATABASE_URL,
-  firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
-  firebaseServiceAccount: serviceAccount,
+  // Project ID can now reliably come from the parsed service account object
+  firebaseProjectId: serviceAccount.project_id,
+  firebaseServiceAccount: serviceAccount, // This holds the parsed object
 };
