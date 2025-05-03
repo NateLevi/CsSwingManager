@@ -69,19 +69,20 @@ export default function NavBar() {
   };
 
   return (
-    <Box sx={{ px: 5, pt: 5, position: 'relative' }}>
+    <Box sx={{ px: 5, pt: 5, position: 'relative', zIndex: 1100 }}>
       <AppBar
         position="static"
         sx={{
           backgroundColor: '#f5f7f8',
           color: '#000',
           boxShadow: 'none',
-          px: 2
+          px: 2,
+          zIndex: 1100
         }}
       >
         <Toolbar disableGutters sx={{ minHeight: 64 }}>
           {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', mr: 2, zIndex: 1100 }}>
             <img 
               src="/logo.png" 
               alt="Logo" 
@@ -90,7 +91,7 @@ export default function NavBar() {
           </Box>
           
           {/* Breadcrumb */}
-          <Breadcrumbs aria-label="breadcrumb" sx={{ mr: 2 }}>
+          <Breadcrumbs aria-label="breadcrumb" sx={{ mr: 2, zIndex: 1100 }}>
             <MUILink component={Link} to="/dashboard" underline="hover" color="inherit">
               Dashboard
             </MUILink>
