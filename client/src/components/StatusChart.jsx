@@ -47,7 +47,7 @@ const StatusChart = () => {
 
     
     return(
-        <div className="bg-white chart-container max-w-xs rounded-lg shadow-lg p-4" style={{ width: '420px', height: '450px' }}>
+        <div className="bg-white chart-container w-full rounded-lg shadow-lg p-4" style={{ height: '450px' }}>
             <h1 className="chart-title text-xl font-bold text-gray-800 mb-2 pb-1 border-b-2 border-gray-300 flex justify-center items-center">Inventory by Status</h1>
             <div className="flex justify-center items-center" style={{ height: 'calc(100% - 50px)' }}>
                 <Doughnut data={data} options={{...options, maintainAspectRatio: false}} ref={chartRef} />

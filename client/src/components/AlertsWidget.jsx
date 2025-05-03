@@ -10,7 +10,7 @@ export default function AlertsWidget() {
   const getModel = id => products.find(p => p.id === id)?.model || 'Unknown';
 
   return (
-    <Card className="max-w-sm rounded-lg shadow-lg">
+    <Card className="w-full rounded-lg shadow-lg">
       <CardContent>
         <Box className="flex items-center mb-2">
           <Badge badgeContent={lowStockAlerts.length} color="error">

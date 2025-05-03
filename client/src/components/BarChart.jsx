@@ -73,7 +73,7 @@ const BarChart = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 w-full h-90 flex flex-col">
+    <div className="bg-white rounded-lg shadow-lg p-4 w-full flex flex-col" style={{ height: '450px' }}>
       <h2 className="text-lg font-semibold text-gray-800 mb-2 text-center">
         Inventory by Store
       </h2>

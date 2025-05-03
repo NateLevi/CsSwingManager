@@ -22,24 +22,24 @@ const Dashboard = () => {
 
         {/* First row of charts */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div className="min-w-0">
+          <div className="min-w-0 flex justify-center">
             <InventoryPieChart />
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 flex justify-center">
             <StatusChart />
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 flex justify-center">
             <BarChart />
           </div>
         </div>
 
         {/* Second row: flex layout */}
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="w-full md:w-1/3 min-w-0">
+          <div className="w-full md:w-1/3 min-w-0 flex justify-center">
             <AlertsWidget />
           </div>
 
-          <div className="w-full md:w-2/3 min-w-0">
+          <div className="w-full md:w-2/3 min-w-0 flex justify-center">
             <TopSellingChart />
           </div>
         </div>
