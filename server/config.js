@@ -1,30 +1,39 @@
-// config.js (Corrected to load file from App Root)
-// const path = require('path'); // We don't need path.resolve for this anymore
+// config.js (with added debugging)
+// const path = require('path'); // Not needed for this approach
 
 // dotenv is for local development only
 // require('dotenv').config(...)
+console.log('--- Loading config.js ---'); // Log entry to prove this file is running
 
 let serviceAccount;
 
 try {
-
   const serviceAccountFilename = process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
+  // Log the exact value read from the environment variable
+  console.log(`DEBUG: Env Var FIREBASE_SERVICE_ACCOUNT_PATH value: "${serviceAccountFilename}"`);
 
   if (serviceAccountFilename) {
-    console.log(`Attempting to load Firebase key using filename: ${serviceAccountFilename}`);
+    // Log the current working directory to see where Node is running from
+    try {
+      console.log(`DEBUG: Current Working Directory (CWD): ${process.cwd()}`);
+    } catch (e) { console.log('DEBUG: Could not get CWD.')}
 
-    serviceAccount = require(serviceAccountFilename);
+    // Log exactly what we are about to require
+    console.log(`DEBUG: Attempting require('${serviceAccountFilename}')`);
+
+    // require() will search Node's default paths, including the CWD
+    serviceAccount = require(serviceAccountFilename); // Use the filename directly
 
     console.log('Firebase service account loaded successfully.');
+
   } else {
+    // This means the environment variable wasn't set in Render
     throw new Error('FIREBASE_SERVICE_ACCOUNT_PATH environment variable is not set in Render.');
   }
 } catch (error) {
   console.error('Fatal Error: Could not load Firebase service account key.', error);
-  console.error(`Filename attempted: ${process.env.FIREBASE_SERVICE_ACCOUNT_PATH || 'Not Set'}`);
-  try {
-    console.error(`Current Working Directory (CWD): ${process.cwd()}`);
-  } catch (e) { console.error('Could not get CWD.')}
+  // Log the filename it *should* have attempted based on the env var
+  console.error(`Filename attempted based on Env Var: ${process.env.FIREBASE_SERVICE_ACCOUNT_PATH || 'Not Set'}`);
   process.exit(1);
 }
 
