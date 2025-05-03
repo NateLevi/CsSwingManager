@@ -1,0 +1,20 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .app-layout {
+    display: flex;
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+  }
+  
+  .main-content {
+    margin-left: 280px; /* Width of your sidebar */
+    flex: 1;
+  }  
+@import "tailwindcss"
