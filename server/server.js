@@ -59,7 +59,11 @@ try {
 }
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "*", // Be more specific in production if possible
+  methods: ["GET", "POST", "PATCH", "DELETE", "PUT", "HEAD", "OPTIONS"], // Explicitly list allowed methods
+  allowedHeaders: ["Content-Type", "Authorization"] // Ensure necessary headers are allowed
+}));
 app.use(express.json());
 
 // ===========================================
