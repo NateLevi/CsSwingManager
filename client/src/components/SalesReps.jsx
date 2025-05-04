@@ -23,7 +23,7 @@ const SalesReps = () => {
       const token = await user.getIdToken();
 
       await axios.patch(
-        `${import.meta.VITE_API_URL}/api/customers/update/next`,
+        `${import.meta.env.VITE_API_URL}/api/customers/update/next`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` }
