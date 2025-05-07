@@ -2,8 +2,8 @@
 
 # Swing System App for Cellular Sales
 
-# Tech used: [![My Skills](https://skillicons.dev/icons?i=html,css,tailwind,js,react,vite,firebase,socket.io,supabase)](https://skillicons.dev)
-[![Socket.io](https://skills-icons.vercel.app/api/icons?i=socketio)](https://skills-icons.vercel.app)
+# Tech used: [![My Skills](https://skillicons.dev/icons?i=html,css,tailwind,js,react,vite,firebase,supabase)](https://skillicons.dev)[![Socket.io](https://skills-icons.vercel.app/api/icons?i=socketio)](https://skills-icons.vercel.app)
+
 ## Overview
 
 A full-stack, real-time management system I built for a store I used to work at during my sales job at Cellular Sales. I wanted to rebuild and improve the internal system we used because it was outdated, slow, and caused a lot of confusion, especially around how we tracked customer swings and managed inventory.
