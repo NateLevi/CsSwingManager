@@ -2,7 +2,7 @@
 
 # Swing System App for Cellular Sales
 
-# Tech used: [![My Skills](https://skillicons.dev/icons?i=html,css,tailwind,js,react,vite,firebase,supabase)](https://skillicons.dev)[![Socket.io](https://skills-icons.vercel.app/api/icons?i=socketio)](https://skills-icons.vercel.app)
+# Tech used: [![My Skills](https://skillicons.dev/icons?i=html,css,tailwind,js,node,react,vite,firebase,supabase)](https://skillicons.dev)[![Socket.io](https://skills-icons.vercel.app/api/icons?i=socketio)](https://skills-icons.vercel.app)
 
 ## Overview
 
