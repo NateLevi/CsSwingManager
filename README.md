@@ -1,3 +1,5 @@
+![My Image](csswingproject.png)
+
 # Swing System App for Cellular Sales
 
 ## Overview
@@ -7,23 +9,6 @@ A full-stack, real-time management system I built for a store I used to work at 
 This app fixes those problems. It includes a swing rep portal to assign customers fairly, real-time updates using Socket.IO, tools to manage and transfer inventory, the ability to order supplies directly into inventory, and a dashboard with charts and data to track performance. I built this to modernize how the store operates and make things way smoother for reps.
 
 Please note that after periods of inactivity, the data and site may take a few seconds to load as the Render-hosted server wakes up from sleep mode.
-
-## Problem Statement
-At Cellular Sales, we faced several challenges with our manual swing system:
-
-❌ Confusion about rep rotation and customer assignment
-
-❌ No centralized way to track or manage inventory and supplies
-
-❌ Lack of visibility into key store performance data
-
-❌ No internal support request system
-
-❌ Fragmented or inconsistent store operations
-
-Solution: The Store A Management System
-
-This app provides a unified digital hub to support daily store operations, combining real-time queueing, inventory tracking, analytics, and support features into a single, modern interface.
 
 ## Testing 🚨 **Important** 
 
@@ -74,6 +59,23 @@ Live analytics and charts for:
 
 🆘 Internal Support System
 - Submit support tickets
+
+## Problem Statement
+At Cellular Sales, we faced several challenges with our manual swing system:
+
+❌ Confusion about rep rotation and customer assignment
+
+❌ No centralized way to track or manage inventory and supplies
+
+❌ Lack of visibility into key store performance data
+
+❌ No internal support request system
+
+❌ Fragmented or inconsistent store operations
+
+Solution: The Store A Management System
+
+This app provides a unified digital hub to support daily store operations, combining real-time queueing, inventory tracking, analytics, and support features into a single, modern interface.
 
 ## Tech Stack
 Frontend: React, React Router, Material UI
