@@ -2,7 +2,7 @@
 
 # Swing System App for Cellular Sales
 
-# Tech used: [![My Skills](https://skillicons.dev/icons?i=html,css,tailwind,js,react,vite,firebase,socketio,supabase)](https://skillicons.dev)
+# Tech used: [![My Skills](https://skillicons.dev/icons?i=html,css,tailwind,js,react,vite,firebase,socket.io,supabase)](https://skillicons.dev)
 
 ## Overview
 
